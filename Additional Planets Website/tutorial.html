@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="./style.css" type="text/css" rel="stylesheet">
+    <title>1.12.2 Galacticraft 4 Addon Modding Tutorial</title>
+  </head>
+    <body>
+      <div class="head">
+      <center> <h1 class="title">1.12.2 Galacticraft 4 Addon Modding Tutorial</h1> </center>
+      <h2>About</h2>
+        <p>This page is meant for those who want to make an addon mod for Galacticraft 4 on 1.12.2, but don't know much about forge modding or java. <br> 
+            This is also meant to act as a way for me to keep track of my progress and findings and to not lose any of this information. <br> 
+            Note there are many other ways to do this, but I'm only showing you the way I've done it and the best way I know how that works. <br>
+            This is a step-by-step styled tutorial for the most part. Some basic understanding and experience of java is not required, but recommended. <br>
+            If you wish to copy my code so you don't have to type it, my github is: <br> 
+            If you have any questions, my discord is: </p>
+        <p>All of the tutorials listed below have been successfully followed by me, if you want to see any final results, check out <a href="./Additional Planets.html">Additional Planets Addon Mod page.</a></p>
+        <p>Heres what I'll show how to do:</p>
+        <a href="#starting">Getting Started</a>.
+        <a href="#blocks">Blocks</a>.
+        <a href="#items">Items</a>.
+        <a href="#galaxies">Galaxies</a>.
+        <a href="#stars">Star Systems</a>.
+        <a href="#planets">Planets</a>.
+        <a href="#moons">Moons</a>.
+        <a href="#tabs">Creative Tabs</a>.
+        <a href="#recipes">Recipes and Smelting</a>.
+        <a href="#ores">Ore Generation</a>.
+        <a href="#tools">Tools</a>.
+        <a href="#armor">Armor</a>.
+        <a href="#sky">Sky Features</a>.
+        <a href="#making">Making Planets and Moons</a>.
+        <a href="#extra">Extra Stuff</a>.
+        <a href="#exporting">Exporting and Testing</a>.
+        <a href="#mobs">Mobs</a>.
+        <a href="#foods">Foods</a>.
+        <a href="#issues">Issues</a>.
+        <a href="#trees">How to get Trees to Generate</a>.
+      <h3 id="starting">Getting Started</h3>
+        <p class="description">This is the most crucial step, and the hardest. This is how to set up a forge modding project, getting eclipse to work, and setting up the mod structure.</p>
+        <p class="subtitle">Registration:</p>
+      <h3 id="blocks">Blocks</h3>
+        <p class="description">How to make a block.</p>
+        <p>Making a block is a good and essential place to start, and one of the easiest things to do.</p>
+      <h3 id="items">Items</h3>
+        <p class="description">How to make a simple item</p>
+      <section class="galaxies">
+      <h3 id="galaxies">Galaxies</h3>
+        <p class="description">How to create a new galaxy on the galaxy map</p>
+        <p>1. Navigate to your NewGalaxy class located within your celestial package. These are located in the java section, not the resources section. <br>
+           2. Under the class declaration "public class NewGalaxy {" add the first line: public static Galaxies (your galaxy name) <br>
+           3. Then, under the "private static void build()", add the line: (your galaxy name) = BodiesRegistry.registerGalaxy("(your galaxy name)", new ResourceLocation(Const.modID, "textures/galaxy/(your galaxy name).png")); <br>
+           4. Insert your 16x16 pixel png image in the resources.assets.gcaddon.textures.galaxy <br>
+           It should look something like this:</p>
+           <a href="./Resources.html" target="_blank"><img src="galaxies.png"/></a>
+      </section>
+      <h3 id="stars">Star Systems</h3>
+        <p class="description">How to create a star system/solar system</p>
+      <h3 id="planets">Planets</h3>
+        <p class="description">How to set up a simple planet. This is just to get it to appear on the galaxy map</p>
+      <h3 id="moons">Moons</h3>
+        <p class="description">How to set up a simple moon. This is just to get it to appear on the galaxy map</p>
+      <h3 id="tabs">Creative Tab</h3>
+        <p>How to create your custom creative tab</p>
+      <section class="recipes">
+      <h3 id="recipes">Recipes and Smelting</h3>
+        <p class="description">How to make a crafting recipe and smelting recipes</p>
+        <p class="subtitle">Crafting Recipes:</p>
+        <p>1. Navigate to your recipes package, located in resources.assets.gcaddon <br> 
+          2. Make a .json file called something like this: MyItem <br> 
+          3. Enter the code shown above or copy it from my github <br>
+          4. Change the pattern. The pattern shows 3 lines of "" that represent the 3 rows in a crafting table, each with 3 spaces inside representing each slot within. <br>
+          If those slots have a space, that means there is no item in that part of the crafting table. If there is a capital letter, then it means there is an item or block that belongs <br>
+          5. Customize the key. Each letter in the pattern corresponds to a block or item, weather vanilla or modded. <br>
+          Keep the same format I use, but you may change the letter (keep it a capital)</p>
+        <p class="subtitle">Smelting Recipes:</p>
+        <a href="./Resources.html" target="_blank"><img src="smelting.png"/></a>
+        <p>1. Navigate to your init package within your src <br> 
+          2. Open your Recipes.java class <br> 
+          3. Add a smelting recipe. This is the only line of code required: GameRegistry.addSmelting(ITEM LOCATION.ITEM, new ItemStack(ITEM LOCATION.ITEM, HOW MUCH YOU GET OUT), EXPERIENCE RECIEVED.0f);</p>
+        </section>
+      <h3 id="ores">Ore Generation</h3>
+        <p class="description">How to gwt your custom ores to spawn in your dimension/planet. You can also get them to spawn in the overworld, and you can also get vanilla ores to spawn as well.</p>
+      <h3 id="tools">Tools</h3>
+        <p class="description">How to make a simple tool or weapon</p>
+      <h3 id="armor">Armor</h3>
+        <p class="description">How to make a full set of armor</p>
+      <h3 id="sky">Sky Features: Planets, Moons, Stars, etc.</h3>
+        <p class="description">This shows you how to get a custom sky in your planet or moon. You can get other planets, stars, moons, and much more to appear in the sky above.</p>
+      <h3 id="making">Making Planets and Moons. Dimension info, and more</h3>
+        <p class="description">This is how to actually set up the celestial body to be landable. This is how to customize terrain generation, switch what blocks are on the world, how to set up your lander that transports you, make biomes, and much much more.</p>
+      <h3 id="extra">Extra stuff: Cloud changings, planet rings, and more</h3>
+        <p> class="description"These are just some extra things I found out how to do that may be nice to know:</p>
+      <h3 id="exporting">Exporting and testing</h3>
+        <p class="description">How to run the mod and how to turn it into a jar file</p>
+      <h3 id="mobs">Mobs</h3>
+        <p class="description">How to make a mob and how to make it spawn:</p>
+      <h3 id="foods">Foods</h3>
+        <p class="description">How to make a simple food item:</p>
+      <h3 id="issues">Common issues</h3>
+        <p class="description">These are some of the common issues you may run into and how to fix them</p>
+      <section class="trees">
+      <h3 id="trees">Tree Generation</h3>
+        <p class="description">How to get trees to generate on your planet or moon.</p>
+        <p>1. Navigate to your planet package under the celestial package, and open these classes: <br> 
+           BiomeDecoratorTutorial.java, BiomeTutorial.java, ChunkProviderTutorial.java, and TurorialBiomes.java. <br>
+           2. Within TurorialBiomes, replace any refrence to a BiomeDecorator (besides an import) with this: Note that Zakir is the name of a planet that I used. Replace <br>
+           <a href="./Resources.html" target="_blank"><img src="tutorialbiomes.png"/></a> <br>
+           3. </p>
+          </section>
+    </body>
+</html>
